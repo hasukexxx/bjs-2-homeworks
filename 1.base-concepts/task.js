@@ -1,6 +1,6 @@
 "use strict"
 function solveEquation(a,b,c) {
-  let d = b**-4*a*c;
+  let d = b**2-4*a*c;
   let arr = [];
   if (d < 0) {
     arr = [];
@@ -14,10 +14,10 @@ function solveEquation(a,b,c) {
   return arr;
 }
 
-console.log(solveEquation(1,5,4))
-
-
-
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
-  
+  percentDecimalMonthly = percent/100/12;
+  totalCredit = amount - contribution;
+  monthlyPayment = totalCredit * (percentDecimalMonthly + (percentDecimalMonthly / (((1 + percentDecimalMonthly)**countMonths) - 1)));
+  totalPayment = (monthlyPayment * countMonths).toFixed(2);
+  return totalPayment;
 }
